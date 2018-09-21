@@ -1,0 +1,36 @@
+title Tehtävä 0.4 Uusi muistiinpano
+
+Käyttäjä->Selain: 
+note right of Käyttäjä: Kirjoittaa input-kenttään "Testiteksti" ja painaa talleta painiketta
+Selain->Palvelin: POST https://fullstack-exampleapp.herokuapp.com/new_note
+note right of Selain: Lähetetään HTML POST pyyntö palvelimelle, joka sisältää input-kenttään syötetyn datan (note)
+
+Palvelin->Selain: Status 302, sivun uudelleenohjauspyyntö (redirect)
+note right of Selain: 
+    Palvelin luo uutta muistiinpanoa vastaavan olion 
+    ja laittaa sen muistiinpanot sisältävään taulukkoon nimeltään notes 
+    ja lähettää selaimelle uudelleenoohjauspyynnön. 
+    Location: https://fullstack-exampleapp.herokuapp.com/notes
+end note
+
+Selain->Palvelin: GET https://fullstack-exampleapp.herokuapp.com/notes
+note right of Selain: Muodostetaan HTML, jossa muistiinpanot listattuna
+Palvelin->Selain: Status 200, sivun HTML-koodi
+
+Selain->Palvelin: GET https://fullstack-exampleapp.herokuapp.com/main.css
+note right of Selain: Pyydetään HTML:n Head osiossa viitattu main.css
+Palvelin->Selain: status 200, sivun CSS-koodi 
+
+Selain->Palvelin: GET https://fullstack-exampleapp.herokuapp.com/main.js
+note right of Selain: Pyydetään HTML:n Head osiossa viitattu main.js
+Palvelin->Selain: status 200, sivun JS-koodi 
+
+Selain->Palvelin: GET https://fullstack-exampleapp.herokuapp.com/data.json
+note right of Selain: Pyydetään Main.js scriptissä viitattu data.json
+Palvelin->Selain: status 200, sivun JSON-koodi 
+
+note left of Selain
+ Selain näyttää palvelimen palauttaman HTML:n
+ johon on listattu muistiinpanolista, 
+ jossa mukana lisätty uusi muistiinpano "Testiteksti"
+end note
