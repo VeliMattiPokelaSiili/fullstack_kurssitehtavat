@@ -1,0 +1,25 @@
+title Tehtävä 0.3 Muistiinpanojen sivu
+
+Käyttäjä->Selain: 
+note right of Käyttäjä: Käyttäjä klikkaa linkkiä "muistiinpanot"
+
+Selain->Palvelin: GET https://fullstack-exampleapp.herokuapp.com/notes
+note right of Selain: Muodostetaan HTML, jossa muistiinpanot listattuna
+Palvelin->Selain: Status 200, sivun HTML-koodi
+
+Selain->Palvelin: GET https://fullstack-exampleapp.herokuapp.com/main.css
+note right of Selain: Pyydetään HTML:n Head osiossa viitattu main.css
+Palvelin->Selain: status 200, sivun CSS-koodi 
+
+Selain->Palvelin: GET https://fullstack-exampleapp.herokuapp.com/main.js
+note right of Selain: Pyydetään HTML:n Head osiossa viitattu main.js
+Palvelin->Selain: status 200, sivun JS-koodi 
+
+Selain->Palvelin: GET https://fullstack-exampleapp.herokuapp.com/data.json
+note right of Selain: Pyydetään Main.js scriptissä viitattu data.json
+Palvelin->Selain: status 200, sivun JSON-koodi 
+
+note left of Selain
+ selain näyttää palvelimen palauttaman HTML:n
+ johon on listattu muistiinpanolista
+end note
